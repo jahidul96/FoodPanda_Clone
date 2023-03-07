@@ -12,7 +12,7 @@ class HomeAppBarContent extends StatelessWidget {
         TextComp(
           text: "Current Location",
           color: Colors.white,
-          fontweight: FontWeight.w500,
+          fontweight: FontWeight.bold,
         ),
         const SizedBox(
           height: 3,
