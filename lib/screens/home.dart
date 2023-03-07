@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda/data/cuisin_data.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/utils/network_images.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
+import 'package:foodpanda/widgets/cuisin_tab.dart';
 import 'package:foodpanda/widgets/daily_offer_comp.dart';
 import 'package:foodpanda/widgets/flexible_appbar.dart';
 import 'package:foodpanda/widgets/home_appbar_content.dart';
@@ -44,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               [
                 // PickupOptions
                 Container(
-                  color: Colors.grey.shade200,
+                  color: Colors.grey.shade100,
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                     child: PickupOptions(),
@@ -56,14 +58,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextComp(
                     text: "Your Daily Deals",
-                    size: 20,
+                    size: 18,
                     fontweight: FontWeight.bold,
                   ),
                 ),
 
                 // daily offers vertical content
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 20),
+                  padding: const EdgeInsets.only(top: 6, bottom: 20),
                   child: SizedBox(
                     height: 180,
                     child: ListView.builder(
@@ -79,28 +81,62 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                Container(
-                  color: Colors.grey.shade200,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    child: Column(
-                      children: [
-                        BigBannerButton(
-                          title: "Become a pro",
-                          subtitle: "Unlock exclusive offers",
-                          height: 80,
-                        ),
-                        const SizedBox(height: 15),
-                        BigBannerButton(
-                          title: "Try panda rewards",
-                          subtitle: "Earn price and win prizes",
-                          height: 80,
-                        ),
-                      ],
-                    ),
+                // two offer buttons
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                  child: Column(
+                    children: [
+                      BigBannerButton(
+                        title: "Become a pro",
+                        subtitle: "Unlock exclusive offers",
+                        height: 80,
+                      ),
+                      const SizedBox(height: 15),
+                      BigBannerButton(
+                        title: "Try panda rewards",
+                        subtitle: "Earn price and win prizes",
+                        height: 80,
+                      ),
+                    ],
                   ),
-                )
+                ),
+
+                const SizedBox(height: 20),
+
+                // try cuisin text
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
+                  child: TextComp(
+                    text: "Try Cuisin",
+                    size: 18,
+                    fontweight: FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // two slider
+                SizedBox(
+                  height: 280,
+                  child: ListView.separated(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 10),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: cuisinesData.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          CuisinTabItem(data: cuisinesData[index]),
+                          CuisinTabItem(data: cuisinesData[index]),
+                        ],
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

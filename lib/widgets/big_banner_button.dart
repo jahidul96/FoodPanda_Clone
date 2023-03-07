@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodpanda/utils/network_images.dart';
+import 'package:foodpanda/utils/reusable_styles.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
 
 import '../utils/app_colors.dart';
@@ -26,6 +27,9 @@ class BigBannerButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          ReusableStyles.smallBoxShadow,
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
