@@ -5,10 +5,12 @@ class CustomeButton extends StatelessWidget {
   dynamic text;
   Color textColor;
   Color backgroundColor;
+  Function()? onPressed;
 
   CustomeButton({
     super.key,
     required this.text,
+    required this.onPressed,
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black,
   });
@@ -26,7 +28,7 @@ class CustomeButton extends StatelessWidget {
               width: .8,
               style: BorderStyle.solid,
             )),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(

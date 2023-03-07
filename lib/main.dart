@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         UserLocation.routeName: (context) => const UserLocation(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
       home: const UserLocation(),
     );

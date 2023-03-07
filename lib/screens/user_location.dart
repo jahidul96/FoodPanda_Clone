@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda/screens/home.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/widgets/custome_button.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
@@ -73,12 +74,18 @@ class _UserLocationState extends State<UserLocation> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     CustomeButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, HomeScreen.routeName);
+                      },
                       text: "Allow location acces",
                       backgroundColor: AppColors.primaryColor,
                       textColor: Colors.white,
                     ),
                     const SizedBox(height: 10),
                     CustomeButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, HomeScreen.routeName);
+                      },
                       text: "Add location",
                       backgroundColor: AppColors.whiteColor,
                     ),
