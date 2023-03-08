@@ -5,8 +5,9 @@ import 'package:foodpanda/utils/reusable_styles.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
 
 class CuisinTabItem extends StatelessWidget {
+  bool singleTab;
   CuisinModel data;
-  CuisinTabItem({super.key, required this.data});
+  CuisinTabItem({super.key, required this.data, this.singleTab = false});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CuisinTabItem extends StatelessWidget {
         Navigator.pushNamed(context, CuisinItemScreen.routeName);
       },
       child: Container(
-        height: 120,
+        height: 100,
         width: 120,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -24,7 +25,7 @@ class CuisinTabItem extends StatelessWidget {
             ReusableStyles.smallBoxShadow,
           ],
         ),
-        margin: const EdgeInsets.only(bottom: 10),
+        margin: EdgeInsets.only(bottom: 10, right: singleTab ? 10 : 0),
         child: Column(
           children: [
             ClipRRect(
@@ -33,7 +34,7 @@ class CuisinTabItem extends StatelessWidget {
               child: Image.network(
                 data.img,
                 width: double.infinity,
-                height: 80,
+                height: 60,
                 fit: BoxFit.cover,
               ),
             ),

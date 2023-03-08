@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda/screens/food_delivery_screen.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/utils/reusable_styles.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
@@ -18,6 +19,9 @@ class PickupOptions extends StatelessWidget {
           height: 150,
           titleSize: 21,
           shadow: false,
+          onTap: () {
+            Navigator.pushNamed(context, FoodDeliveryScreen.routeName);
+          },
         ),
 
         const SizedBox(height: 10),

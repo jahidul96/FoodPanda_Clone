@@ -11,6 +11,7 @@ class BigBannerButton extends StatelessWidget {
   double height;
   double titleSize;
   bool shadow;
+  Function()? onTap;
 
   BigBannerButton({
     super.key,
@@ -19,60 +20,64 @@ class BigBannerButton extends StatelessWidget {
     required this.height,
     this.titleSize = 17,
     this.shadow = false,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: height,
-      decoration: BoxDecoration(
-        color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: shadow
-            ? [
-                ReusableStyles.smallBoxShadow,
-              ]
-            : [],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextComp(
-                  text: title,
-                  size: titleSize,
-                  fontweight: FontWeight.bold,
-                ),
-                const SizedBox(height: 5),
-                TextComp(
-                  text: subtitle,
-                  size: 12,
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: 120,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-              ),
-              image: DecorationImage(
-                image: NetworkImage(
-                  bannerImg,
-                ),
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        height: height,
+        decoration: BoxDecoration(
+          color: AppColors.whiteColor,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: shadow
+              ? [
+                  ReusableStyles.smallBoxShadow,
+                ]
+              : [],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextComp(
+                    text: title,
+                    size: titleSize,
+                    fontweight: FontWeight.bold,
+                  ),
+                  const SizedBox(height: 5),
+                  TextComp(
+                    text: subtitle,
+                    size: 12,
+                  )
+                ],
               ),
             ),
-          ),
-        ],
+            Container(
+              width: 120,
+              height: double.infinity,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    bannerImg,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

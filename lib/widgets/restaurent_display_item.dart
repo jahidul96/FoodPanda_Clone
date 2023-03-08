@@ -4,13 +4,23 @@ import 'package:foodpanda/widgets/text_comp.dart';
 import '../utils/app_colors.dart';
 
 class RestaurentDispayItem extends StatelessWidget {
-  const RestaurentDispayItem({super.key});
+  double size;
+  bool restaurentShow;
+  bool horizontal;
+  RestaurentDispayItem({
+    super.key,
+    this.size = double.infinity,
+    this.restaurentShow = false,
+    this.horizontal = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15),
+      width: size,
+      margin: EdgeInsets.only(bottom: 15, right: horizontal ? 10 : 0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // image content
           Stack(
@@ -19,7 +29,7 @@ class RestaurentDispayItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   "https://s23209.pcdn.co/wp-content/uploads/2015/12/IMG_0318edit.jpg",
-                  width: double.infinity,
+                  width: size,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
@@ -46,78 +56,86 @@ class RestaurentDispayItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                bottom: 10,
-                left: 10,
-                child: Container(
-                  width: 60,
-                  height: 25,
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
-                    child: TextComp(
-                      text: "30 min",
-                      fontweight: FontWeight.bold,
-                      size: 12,
+
+              // conditinal minute show
+              restaurentShow
+                  ? Container()
+                  : Positioned(
+                      bottom: 10,
+                      left: 10,
+                      child: Container(
+                        width: 60,
+                        height: 25,
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: TextComp(
+                            text: "30 min",
+                            fontweight: FontWeight.bold,
+                            size: 12,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
             ],
           ),
 
           const SizedBox(height: 5),
 
           // descrition
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextComp(
-                text: "Sultan E Noddles",
-                fontweight: FontWeight.bold,
-                size: 14,
-              ),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.star,
-                    size: 14,
-                    color: Colors.orange,
-                  ),
-                  TextComp(
-                    text: " 4 (23)",
-                    size: 12,
-                    fontweight: FontWeight.bold,
-                  ),
-                ],
-              ),
-            ],
+          Container(
+            width: size,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextComp(
+                  text: "Sultan E Noddles",
+                  fontweight: FontWeight.bold,
+                  size: 14,
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.star,
+                      size: 14,
+                      color: Colors.orange,
+                    ),
+                    TextComp(
+                      text: " 4 (23)",
+                      size: 12,
+                      fontweight: FontWeight.bold,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
 
           const SizedBox(height: 3),
-
-          Row(
-            children: [
-              const Icon(
-                Icons.attach_money,
-                size: 18,
-                color: Colors.grey,
-              ),
-              TextComp(
-                text: "-",
-                size: 14,
-                color: Colors.grey,
-              ),
-              const SizedBox(width: 3),
-              TextComp(
-                text: "200",
-                size: 14,
-                color: Colors.grey,
-              ),
-            ],
-          ),
+          restaurentShow
+              ? Container()
+              : Row(
+                  children: [
+                    const Icon(
+                      Icons.attach_money,
+                      size: 18,
+                      color: Colors.grey,
+                    ),
+                    TextComp(
+                      text: "-",
+                      size: 14,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(width: 3),
+                    TextComp(
+                      text: "200",
+                      size: 14,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
 
           const SizedBox(height: 3),
 

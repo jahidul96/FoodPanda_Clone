@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
 
 class HomeAppBarContent extends StatelessWidget {
-  const HomeAppBarContent({super.key});
+  String title;
+  String subTitle;
+  HomeAppBarContent({super.key, required this.subTitle, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class HomeAppBarContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextComp(
-          text: "Current Location",
+          text: title,
           color: Colors.white,
           fontweight: FontWeight.bold,
         ),
@@ -18,7 +20,7 @@ class HomeAppBarContent extends StatelessWidget {
           height: 3,
         ),
         TextComp(
-          text: "halishahar a block,chittagong",
+          text: subTitle,
           size: 13,
           color: Colors.white,
         )

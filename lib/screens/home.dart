@@ -31,10 +31,16 @@ class _HomeScreenState extends State<HomeScreen> {
             floating: true,
             snap: true,
             titleSpacing: 3,
-            title: const HomeAppBarContent(),
+            title: HomeAppBarContent(
+              title: "Current Location",
+              subTitle: "halishahar, chittagong",
+            ),
             expandedHeight: 120,
-            flexibleSpace: const FlexibleSpaceBar(
-              background: FlexibleAppBar(),
+            flexibleSpace: FlexibleSpaceBar(
+              background: FlexibleAppBar(
+                searchBarWidth: MediaQuery.of(context).size.width - 40,
+                placeholderText: "Search by restaurents",
+              ),
             ),
             actions: [
               IconButton(
@@ -98,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subtitle: "Unlock exclusive offers",
                         height: 80,
                         shadow: true,
+                        onTap: () {},
                       ),
                       const SizedBox(height: 15),
                       BigBannerButton(
@@ -105,6 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subtitle: "Earn price and win prizes",
                         height: 80,
                         shadow: true,
+                        onTap: () {},
                       ),
                     ],
                   ),
@@ -128,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // two slider
                 SizedBox(
-                  height: 280,
+                  height: 250,
                   child: ListView.separated(
                     padding: const EdgeInsets.only(left: 15, right: 15),
                     separatorBuilder: (context, index) =>

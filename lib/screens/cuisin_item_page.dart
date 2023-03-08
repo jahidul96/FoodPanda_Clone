@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodpanda/utils/app_colors.dart';
-import 'package:foodpanda/utils/network_images.dart';
 import 'package:foodpanda/widgets/restaurent_display_item.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
 
@@ -26,7 +25,7 @@ class CuisinItemScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           itemCount: 4,
           itemBuilder: (context, index) {
-            return const RestaurentDispayItem();
+            return RestaurentDispayItem();
           },
         ),
       ),
