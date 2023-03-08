@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodpanda/data/cuisin_data.dart';
+import 'package:foodpanda/data/daily_offer_banner.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/utils/network_images.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
+          // app bar
           SliverAppBar(
             pinned: true,
             floating: true,
@@ -41,12 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
+
+          // body content
           SliverList(
             delegate: SliverChildListDelegate(
               [
                 // PickupOptions
                 Container(
-                  color: Colors.grey.shade100,
+                  color: Colors.grey.shade200,
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                     child: PickupOptions(),
@@ -70,12 +74,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 180,
                     child: ListView.builder(
                       padding: const EdgeInsets.only(left: 10),
-                      itemCount: 10,
+                      itemCount: bannerData.length,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       physics: const ClampingScrollPhysics(),
                       itemBuilder: (context, index) {
-                        return const DailyOfferTabs();
+                        return DailyOfferTabs(
+                          img: bannerData[index],
+                        );
                       },
                     ),
                   ),
@@ -91,12 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: "Become a pro",
                         subtitle: "Unlock exclusive offers",
                         height: 80,
+                        shadow: true,
                       ),
                       const SizedBox(height: 15),
                       BigBannerButton(
                         title: "Try panda rewards",
                         subtitle: "Earn price and win prizes",
                         height: 80,
+                        shadow: true,
                       ),
                     ],
                   ),
@@ -131,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return Column(
                         children: [
                           CuisinTabItem(data: cuisinesData[index]),
-                          CuisinTabItem(data: cuisinesData[index]),
+                          CuisinTabItem(data: cuisinesDataTwo[index]),
                         ],
                       );
                     },
@@ -142,7 +150,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: AppColors.primaryColor,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextComp(
+                    text: "Login/Register",
+                    color: Colors.white,
+                    fontweight: FontWeight.bold,
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

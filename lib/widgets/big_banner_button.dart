@@ -10,6 +10,7 @@ class BigBannerButton extends StatelessWidget {
   String subtitle;
   double height;
   double titleSize;
+  bool shadow;
 
   BigBannerButton({
     super.key,
@@ -17,6 +18,7 @@ class BigBannerButton extends StatelessWidget {
     required this.subtitle,
     required this.height,
     this.titleSize = 17,
+    this.shadow = false,
   });
 
   @override
@@ -27,9 +29,11 @@ class BigBannerButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          ReusableStyles.smallBoxShadow,
-        ],
+        boxShadow: shadow
+            ? [
+                ReusableStyles.smallBoxShadow,
+              ]
+            : [],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

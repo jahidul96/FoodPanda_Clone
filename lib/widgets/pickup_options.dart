@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodpanda/utils/app_colors.dart';
-import 'package:foodpanda/utils/network_images.dart';
 import 'package:foodpanda/utils/reusable_styles.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
@@ -18,6 +17,7 @@ class PickupOptions extends StatelessWidget {
           subtitle: "Best deals on your favorite.",
           height: 150,
           titleSize: 21,
+          shadow: false,
         ),
 
         const SizedBox(height: 10),
@@ -60,11 +60,9 @@ class PickupOptions extends StatelessWidget {
         width: 155,
         height: height,
         decoration: BoxDecoration(
-            color: AppColors.whiteColor,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              ReusableStyles.smallBoxShadow,
-            ]),
+          color: AppColors.whiteColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           child: Column(
