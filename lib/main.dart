@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda/screens/cuisin_item_page.dart';
 import 'package:foodpanda/screens/home.dart';
 import 'package:foodpanda/screens/search_screen.dart';
 import 'package:foodpanda/screens/user_location.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         UserLocation.routeName: (context) => const UserLocation(),
         HomeScreen.routeName: (context) => const HomeScreen(),
         SearchScreen.routeName: (context) => const SearchScreen(),
+        CuisinItemScreen.routeName: (context) => const CuisinItemScreen(),
       },
       home: const UserLocation(),
     );

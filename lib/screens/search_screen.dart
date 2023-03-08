@@ -23,11 +23,9 @@ class _SearchScreenState extends State<SearchScreen> {
           iconTheme: const IconThemeData(
             color: AppColors.primaryColor, //change your color here
           ),
-          title: Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20),
-              child: searchBar(),
-            ),
+          title: Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: searchBar(),
           ),
           backgroundColor: Colors.white,
           bottom: const TabBar(
@@ -62,6 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget searchBar() => Container(
         height: 38,
+        width: 300,
         decoration: BoxDecoration(
           color: Colors.grey.shade100,
           borderRadius: BorderRadius.circular(6),
