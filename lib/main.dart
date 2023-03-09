@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda/screens/cart_screen.dart';
 import 'package:foodpanda/screens/cuisin_item_page.dart';
 import 'package:foodpanda/screens/food_delivery_screen.dart';
 import 'package:foodpanda/screens/home.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         CuisinItemScreen.routeName: (context) => const CuisinItemScreen(),
         FoodDeliveryScreen.routeName: (context) => const FoodDeliveryScreen(),
         ResturentDetails.routeName: (context) => const ResturentDetails(),
+        CartScreen.routeName: (context) => const CartScreen()
       },
       home: const UserLocation(),
     );

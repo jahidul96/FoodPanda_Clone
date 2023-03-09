@@ -42,21 +42,21 @@ class RestaurentDispayItem extends StatelessWidget {
                 Positioned(
                   top: 10,
                   child: Container(
-                    width: 70,
-                    height: 25,
+                    width: 60,
+                    height: 22,
                     decoration: const BoxDecoration(
                       color: AppColors.primaryColor,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
+                        topRight: Radius.circular(5),
+                        bottomRight: Radius.circular(5),
                       ),
                     ),
                     child: Center(
                       child: TextComp(
-                        text: "12 % off",
+                        text: "12% off",
                         fontweight: FontWeight.bold,
                         color: AppColors.whiteColor,
-                        size: 13,
+                        size: 12,
                       ),
                     ),
                   ),

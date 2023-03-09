@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodpanda/data/cuisin_data.dart';
 import 'package:foodpanda/data/daily_offer_banner.dart';
+import 'package:foodpanda/screens/cart_screen.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
 import 'package:foodpanda/widgets/cuisin_tab.dart';
@@ -8,6 +9,7 @@ import 'package:foodpanda/widgets/daily_offer_comp.dart';
 import 'package:foodpanda/widgets/flexible_appbar.dart';
 import 'package:foodpanda/widgets/home_appbar_content.dart';
 import 'package:foodpanda/widgets/pickup_options.dart';
+import 'package:foodpanda/widgets/signin_login_model_content.dart';
 import 'package:foodpanda/widgets/text_comp.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,6 +21,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Future becomeaPro() {
+    return showModalBottomSheet(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+      ),
+      context: context,
+      builder: (context) {
+        return SignInLoginModelComp();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, CartScreen.routeName);
+                },
                 icon: const Icon(Icons.local_mall),
               )
             ],
@@ -103,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subtitle: "Unlock exclusive offers",
                         height: 80,
                         shadow: true,
-                        onTap: () {},
+                        onTap: becomeaPro,
                       ),
                       const SizedBox(height: 15),
                       BigBannerButton(
@@ -111,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         subtitle: "Earn price and win prizes",
                         height: 80,
                         shadow: true,
-                        onTap: () {},
+                        onTap: becomeaPro,
                       ),
                     ],
                   ),
@@ -177,7 +194,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 10),
                 ],
               ),
-            )
+            ),
+            Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  horizontalTitleGap: 0,
+                  title: TextComp(
+                    text: "Settings",
+                    fontweight: FontWeight.bold,
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.details),
+                  horizontalTitleGap: 0,
+                  title: TextComp(
+                    text: "Details",
+                    fontweight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
