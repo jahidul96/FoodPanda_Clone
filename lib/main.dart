@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodpanda/screens/cuisin_item_page.dart';
 import 'package:foodpanda/screens/food_delivery_screen.dart';
 import 'package:foodpanda/screens/home.dart';
+import 'package:foodpanda/screens/resturent_details.dart';
 import 'package:foodpanda/screens/search_screen.dart';
 import 'package:foodpanda/screens/user_location.dart';
 import 'package:foodpanda/utils/app_colors.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         SearchScreen.routeName: (context) => const SearchScreen(),
         CuisinItemScreen.routeName: (context) => const CuisinItemScreen(),
         FoodDeliveryScreen.routeName: (context) => const FoodDeliveryScreen(),
+        ResturentDetails.routeName: (context) => ResturentDetails(),
       },
       home: const UserLocation(),
     );

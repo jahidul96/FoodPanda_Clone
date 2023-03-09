@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:foodpanda/data/cuisin_data.dart';
 import 'package:foodpanda/data/daily_offer_banner.dart';
 import 'package:foodpanda/utils/app_colors.dart';
-import 'package:foodpanda/utils/network_images.dart';
 import 'package:foodpanda/widgets/big_banner_button.dart';
 import 'package:foodpanda/widgets/cuisin_tab.dart';
 import 'package:foodpanda/widgets/daily_offer_comp.dart';
