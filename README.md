@@ -1,16 +1,24 @@
-# foodpanda
+ foodpanda clone(not full in building)
+ 
+if you want to clone just clone and improve more..
 
-A new Flutter project.
+<div style={{
+     display: flex,
+     align-items: center
+     }}>
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-05-17-33.png" width="200" height="400" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-05-22-91.png" width="200" height="400" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-05-28-14.png" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-05-34-79.png" width="200" height="400" />
+</div>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div style={{
+     display: flex,
+     align-items: center
+     }}>
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-06-03-58.png" width="200" height="400" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-06-13-39.png" width="200" height="400" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-05-28-14.png" />
+<img src="https://github.com/jahidul96/FoodPanda_Clone/blob/main/screenshot/Screenshot_2023-03-09-22-06-42-88.png" width="200" height="400" />
+</div>
