@@ -2,6 +2,8 @@
  
 if you want to clone just clone and improve more..
 
+some animation problem have in autoscroll will fix it shortly!.
+
 <div style={{
      display: flex,
      align-items: center
