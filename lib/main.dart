@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         SearchScreen.routeName: (context) => const SearchScreen(),
         CuisinItemScreen.routeName: (context) => const CuisinItemScreen(),
         FoodDeliveryScreen.routeName: (context) => const FoodDeliveryScreen(),
-        ResturentDetails.routeName: (context) => ResturentDetails(),
+        ResturentDetails.routeName: (context) => const ResturentDetails(),
       },
       home: const UserLocation(),
     );

@@ -1,15 +1,18 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:foodpanda/data/restaurent_item_data.dart';
 import 'package:foodpanda/models/resttaurent_item_model.dart';
 import 'package:foodpanda/utils/app_colors.dart';
 import 'package:foodpanda/utils/network_images.dart';
-import 'package:foodpanda/widgets/flexible_appbar.dart';
+import 'package:foodpanda/widgets/product_details.dart';
+import 'package:foodpanda/widgets/text_comp.dart';
 
 class ResturentDetails extends StatefulWidget {
   static const routeName = "restaurentdetails";
-  ResturentDetails({Key? key}) : super(key: key);
+  const ResturentDetails({
+    super.key,
+  });
 
   @override
   _ResturentDetailsState createState() => _ResturentDetailsState();
@@ -81,16 +84,19 @@ class _ResturentDetailsState extends State<ResturentDetails> {
               ],
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Seven Days',
-                    style: TextStyle(fontWeight: FontWeight.w600),
+                children: [
+                  TextComp(
+                    text: "Seven Days",
+                    fontweight: FontWeight.bold,
+                    color: AppColors.whiteColor,
                   ),
-                  SizedBox(height: 3),
-                  Text(
-                    'delivery in 40-50 min',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  )
+                  const SizedBox(height: 5),
+                  TextComp(
+                    text: "delivery in 40-50 min",
+                    fontweight: FontWeight.normal,
+                    size: 12,
+                    color: AppColors.whiteColor,
+                  ),
                 ],
               ),
               bottom: TabBar(
@@ -140,9 +146,24 @@ class _ResturentDetailsState extends State<ResturentDetails> {
     );
   }
 
-  convertResItemToList(List<ResturentItemModel> comidas) {
+  convertResItemToList(List<ResturentItemModel> items) {
     return Column(
-      children: comidas.map((comida) => ItemContent(comida)).toList(),
+      children: items.map((item) => ItemContent(item)).toList(),
+    );
+  }
+
+  Future showProductDetails() {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (context) {
+        return Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height * 0.75,
+          color: Colors.white,
+          child: ProductDetailsComp(),
+        );
+      },
     );
   }
 
@@ -150,6 +171,7 @@ class _ResturentDetailsState extends State<ResturentDetails> {
     return Column(
       children: [
         ListTile(
+          onTap: showProductDetails,
           title: Text(item.name),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 12.0),
